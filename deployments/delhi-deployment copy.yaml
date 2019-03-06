@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delhi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: delhi
+  template:
+    metadata:
+      labels:
+        component: delhi
+    spec:
+      containers:
+        - name: delhi
+          image: abhi0977/delhi
+          ports:
+          - containerPort: 5003

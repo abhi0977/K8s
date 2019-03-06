@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paris-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: paris
+  template:
+    metadata:
+      labels:
+        component: paris
+    spec:
+      containers:
+        - name: paris
+          image: abhi0977/paris
+          ports:
+          - containerPort: 5002

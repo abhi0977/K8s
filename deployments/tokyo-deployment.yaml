@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tokyo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: tokyo
+  template:
+    metadata:
+      labels:
+        component: tokyo
+    spec:
+      containers:
+        - name: tokyo
+          image: abhi0977/tokyo
+          ports:
+          - containerPort: 5000

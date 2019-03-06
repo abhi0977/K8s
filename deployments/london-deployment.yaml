@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: london-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: london
+  template:
+    metadata:
+      labels:
+        component: london
+    spec:
+      containers:
+        - name: london
+          image: abhi0977/london
+          ports:
+          - containerPort: 5001

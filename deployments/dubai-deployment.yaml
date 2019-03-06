@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dubai-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: dubai
+  template:
+    metadata:
+      labels:
+        component: dubai
+    spec:
+      containers:
+        - name: dubai
+          image: abhi0977/dubai
+          ports:
+          - containerPort: 5004
+          env:
+            - name: TOKYO_HOST 
+              value: tokyo-cluster-ip-service
+            - name: LONDON_HOST
+              value: london-cluster-ip-service
+            - name: PARIS_HOST
+              value: paris-cluster-ip-service
+            - name: DELHI_HOST
+              value: delhi-cluster-ip-service
+            - name: TOKYO_PORT
+              value: "5000"
+            - name: LONDON_PORT
+              value: "5001"
+            - name: PARIS_PORT
+              value: "5002"
+            - name: DELHI_PORT
+              value: "5003"
