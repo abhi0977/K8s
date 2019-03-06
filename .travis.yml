@@ -1,5 +1,5 @@
-language: node_js
 sudo: required
+language: node_js
 services:
   - docker
 env:
@@ -16,6 +16,9 @@ before_install:
   - gcloud config set compute/zone asia-south1-b
   - gcloud container clusters get-credentials standard-cluster-1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - ls
 
 deploy:
   provider: script
