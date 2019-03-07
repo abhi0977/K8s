@@ -1,20 +1,20 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: shreenathdiamond-com-tls
+  name: shreenathdiamond-tls
 spec:
-  secretName: shreenathdiamond-com
+  secretName: shreenathdiamond
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: shreenathdiamond.com
+  commonName: shreenathdiamond
   dnsNames:
-    - shreenathdiamond.com
-    - www.shreenathdiamond.com
+    - shreenathdiamond
+    - www.shreenathdiamond
   acme:
     config:
       - http01:
           ingressClass: nginx
         domains:
-          - shreenathdiamond.com
-          - www.shreenathdiamond.com
+          - shreenathdiamond
+          - www.shreenathdiamond
